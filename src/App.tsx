@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Flex from "./Components/Flex";
 import GridCard from "./Components/GridCard";
 import NavBar from "./Components/NavBar";
@@ -11,6 +10,11 @@ import Loco from "./Components/Loco";
 import ScrollReveal from "./Components/ScrollReveal";
 import FloatingCircle from "./Components/FloatingCircle";
 import SignUp from "./Components/SignUp";
+import EmailVerification from "./Components/EmailVerification.tsx";
+import { div } from "framer-motion/client";
+import Zustand from "./Components/Zustand.tsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   // const para =
@@ -58,30 +62,43 @@ const App = () => {
     // <Fader />
     // <Loco />
     // <ScrollReveal value={para} />
-    <div className="min-h-screen bg-gradient-to-br from-purple-400 to-pink-300 relative flex items-center justify-center overflow-hidden">
-      <FloatingCircle
-        color="bg-red-300"
-        top="-5%"
-        left="10%"
-        size="size-64"
-        delay={0}
-      />
-      <FloatingCircle
-        color="bg-green-300"
-        top="70%"
-        left="80%"
-        size="size-32"
-        delay={0}
-      />
-      <FloatingCircle
-        color="bg-pink-300"
-        top="30%"
-        left="50%"
-        size="size-20"
-        delay={0}
-      />
-      <SignUp />
-    </div>
+    // ---
+    <BrowserRouter>
+      <div className="min-h-screen bg-gradient-to-br from-purple-400 to-pink-300 relative flex items-center justify-center overflow-hidden">
+        <FloatingCircle
+          color="bg-red-300"
+          top="-5%"
+          left="10%"
+          size="size-64"
+          delay={0}
+        />
+        <FloatingCircle
+          color="bg-green-300"
+          top="70%"
+          left="80%"
+          size="size-32"
+          delay={0}
+        />
+        <FloatingCircle
+          color="bg-pink-300"
+          top="30%"
+          left="50%"
+          size="size-20"
+          delay={0}
+        />
+
+        <Routes>
+          <Route path="/signUp" element={<SignUp />} />
+          <Route path="/verify-email" element={<EmailVerification />} />
+          {/* <SignUp /> */}
+          {/* <EmailVerification /> */}
+        </Routes>
+        <Toaster />
+      </div>
+    </BrowserRouter>
+    // <div>
+    //   <Zustand />
+    // </div>
   );
 };
 
