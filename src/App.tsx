@@ -15,6 +15,7 @@ import { div } from "framer-motion/client";
 import Zustand from "./Components/Zustand.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster } from "react-hot-toast";
+import FileUpload from "./Components/FileUpload.tsx";
 
 const App = () => {
   // const para =
@@ -88,10 +89,12 @@ const App = () => {
         />
 
         <Routes>
-          <Route path="/signUp" element={<SignUp />} />
-          <Route path="/verify-email" element={<EmailVerification />} />
+          {/*<Route path="/signUp" element={<SignUp />} />*/}
+          {/*<Route path="/verify-email" element={<EmailVerification />} />*/}
           {/* <SignUp /> */}
           {/* <EmailVerification /> */}
+
+          <Route path="/upload" element={<FileUpload />} />
         </Routes>
         <Toaster />
       </div>
